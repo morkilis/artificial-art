@@ -1,0 +1,31 @@
+$black:              #000;
+$white:              #fff;
+
+/*$gray:               #B2B1AE;*/
+$gray:               #ADABA5;
+$dark-blue:          #000037;
+
+
+
+
+
+/*Breakpoint sizes*/
+$pro-width: 1440px;
+$desktop-large-width: 1200px;
+$desktop-width: 1024px;
+$nav-min-width: $desktop-width;
+$tablet-width: 768px;
+$small-tablet-width: 620px;
+$mobile-width: 540px;
+$mobile-portrait-width: 350px;
+
+/*Define your breakpoints*/
+$pro: new-breakpoint(max-width $pro-width 8);
+$desktop-large: new-breakpoint(max-width $desktop-large-width 8);
+$desktop: new-breakpoint(max-width $desktop-width 8);
+$nav-min: new-breakpoint(max-width $nav-min-width 8);
+$tabletMinimum: new-breakpoint(min-width $tablet-width 8);
+$tablet: new-breakpoint(max-width $tablet-width 8);
+$small-tablet: new-breakpoint(max-width $small-tablet-width 8);
+$mobile: new-breakpoint(max-width $mobile-width 8);
+$mobile-portrait: new-breakpoint(max-width $mobile-portrait-width 8);

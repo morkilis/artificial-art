@@ -1,0 +1,86 @@
+@font-face {
+   font-family: Basis-Grotesque-Bold;
+   src: url(../fonts/basis_grotesque_trial_bold.otf);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lora:400);
+
+%regular {
+   color: $black;
+   font-family: Basis-Grotesque-Bold, Helvetica, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin body {
+   font-size: 18px;
+   line-height: 22px;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+section {
+   @extend %regular;
+   @include body;
+}
+
+h1 {
+   font-family: 'Lora', serif;
+   font-size: 140px;
+   line-height: 114px;
+   font-weight: 400;
+   letter-spacing: -1;
+   color: black;
+   text-align: center;
+   margin: 0;
+   > span.white{
+      color: white;
+      font-family: Basis-Grotesque-Bold, Helvetica, sans-serif;
+      letter-spacing: -4;
+   }
+}
+
+text {
+   @extend %regular;
+   font-size: 0px;
+   mix-blend-mode: difference;
+}
+
+h2 {
+   text-align: center;
+   margin-bottom: 60px;
+}
+
+h3 {
+   text-align: center;
+   font-size: 14px;
+   letter-spacing: 0.5;
+   margin-top: -50px;
+   margin-bottom: 50px;
+}
+
+nav {
+   font-size: 14px;
+   line-height: 18px;
+}
+
+address, nav {
+   font-style: normal;
+   color: $gray;
+   margin-bottom: 30px;
+}
+
+.underline {
+   border-bottom: 2px solid $gray;
+}
+
+p {
+   margin: 0;
+   text-indent: 60px;
+   &:first-of-type, &.two-columns {
+      text-indent: 0;
+   }
+}

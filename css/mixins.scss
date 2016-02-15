@@ -1,0 +1,115 @@
+@mixin border {
+	-webkit-border-image:url(bordergray.png) 30 round; 
+	     -o-border-image:url(bordergray.png) 30 round;
+		     border-image:url(bordergray.png) 30 round;
+		-webkit-border-image-outset: 10px; /* Safari and Chrome */
+			-moz-border-image-outset: 10px; /* Firefox */
+			 -ms-border-image-outset: 10px; /* Internet Explorer */
+	    	  -o-border-image-outset: 10px; /* Opera */
+				  border-image-outset: 10px; /* CSS3 */
+				}
+
+@mixin rotation {
+  -moz-animation: rotate-animation 10s linear infinite;
+  -webkit-animation: rotate-animation 10s linear infinite;
+  -o-animation: rotate-animation 10s linear infinite;
+  animation: rotate-animation 10s linear infinite;
+}
+
+@mixin transform-scale( $valueX, $valueY ) {
+  -webkit-transform: scale( $valueX, $valueY );
+     -moz-transform: scale( $valueX, $valueY );
+       -o-transform: scale( $valueX, $valueY );
+      -ms-transform: scale( $valueX, $valueY );
+          transform: scale( $valueX, $valueY );
+}
+ 
+/* Firefox */
+@-moz-keyframes rotate-animation {
+   from { -moz-transform: rotate(0deg); }
+   to { -moz-transform: rotate(1440deg); }
+}
+/* WebKit - Chrome and Safari */
+@-webkit-keyframes rotate-animation {
+   from { -webkit-transform: rotate(0deg); }
+   to { -webkit-transform: rotate(1440deg); }
+} 
+/* Opera */
+@-o-keyframes rotate-animation {
+   from { -o-transform: rotate(0deg); }
+   to { -o-transform: rotate(1440deg); }
+} 
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+       -moz-transition: $transition-property $transition-time $method;
+        -ms-transition: $transition-property $transition-time $method;
+         -o-transition: $transition-property $transition-time $method;
+            transition: $transition-property $transition-time $method;
+}
+
+@mixin columns ($number) {
+   -webkit-column-count: $number; /* Chrome, Safari, Opera */
+      -moz-column-count: $number; /* Firefox */
+           column-count: $number;
+}
+
+@mixin column-break ($argument) {
+    -webkit-column-break-after: $argument;
+                   break-after: $argument;
+}
+
+
+/*
+==============================================================================================
+==============================================================================================
+break-points-mixins
+*/
+
+@mixin at-pro {
+  @include media ($pro) {
+    @content;
+  }
+}
+
+@mixin at-desktop-large {
+  @include media($desktop-large) {
+    @content;
+  }
+}
+
+@mixin at-desktop {
+  @include media($desktop) {
+    @content;
+  }
+}
+
+@mixin at-nav-min {
+  @include media ($nav-min) {
+    @content;
+  }
+}
+
+@mixin at-tablet {
+  @include media($tablet) {
+    @content;
+  }
+}
+
+@mixin at-small-tablet {
+  @include media($small-tablet) {
+    @content;
+  }
+}
+
+@mixin at-mobile {
+  @include media($mobile) {
+    @content;
+  }
+}
+
+@mixin at-mobile-portrait {
+  @include media($mobile-portrait) {
+    @content;
+  }
+}
