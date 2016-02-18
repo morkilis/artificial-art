@@ -401,6 +401,7 @@ table {
 break-points-mixins
 */
 /*$gray:               #B2B1AE;*/
+/*$gray:               #ADABA5;*/
 /*Breakpoint sizes*/
 /*Define your breakpoints*/
 body {
@@ -408,12 +409,34 @@ body {
   margin: 0;
   width: 100%;
   vertical-align: top;
-  background-color: #ADABA5;
+  background-color: white;
 }
 
 main {
   font-size: 0px;
   margin: 0;
+}
+
+div.marble {
+  background-image: url(marble.jpg);
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  background: url(marble.jpg) no-repeat -200px -200px fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 180%;
+}
+
+div.mouse-sand-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
 }
 
 section {
@@ -438,12 +461,20 @@ header {
   height: 342px;
 }
 
+nav {
+  opacity: 1;
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
 #down-arrow {
   text-align: center;
   position: fixed;
   width: 100%;
   bottom: 30px;
-  color: white;
+  color: black;
   font-size: 32px;
   font-family: Times New Roman;
   z-index: -1;
@@ -460,28 +491,11 @@ header {
   bottom: 30px;
   right: 30px;
   opacity: 1;
-  /*@include transition: all 0.2s easeinout;*/
-}
-.rsvp-button circle:first-of-type {
-  mix-blend-mode: difference;
-  -webkit-transform: scale(0.01, 0.01);
-  -moz-transform: scale(0.01, 0.01);
-  -o-transform: scale(0.01, 0.01);
-  -ms-transform: scale(0.01, 0.01);
-  transform: scale(0.01, 0.01);
-  transform-origin: 50% 50%;
-}
-.rsvp-button circle:nth-of-type(2) {
-  mix-blend-mode: saturation;
-  -webkit-transform: scale(0.01, 0.01);
-  -moz-transform: scale(0.01, 0.01);
-  -o-transform: scale(0.01, 0.01);
-  -ms-transform: scale(0.01, 0.01);
-  transform: scale(0.01, 0.01);
-  transform-origin: 50% 50%;
+  focus: none;
 }
 
 circle, text {
+  mix-blend-mode: difference;
   -webkit-transition: all 500ms cubic-bezier(0.88, 0, 0.185, 1);
   /* older webkit */
   -webkit-transition: all 500ms cubic-bezier(0.88, -0.25, 0.185, 1.29);
@@ -489,19 +503,21 @@ circle, text {
   -o-transition: all 500ms cubic-bezier(0.88, -0.25, 0.185, 1.29);
   transition: all 500ms cubic-bezier(0.88, -0.25, 0.185, 1.29);
   /* custom */
-  -webkit-transition-timing-function: cubic-bezier(0.88, 0, 0.185, 1);
-  /* older webkit */
-  -webkit-transition-timing-function: cubic-bezier(0.88, -0.25, 0.185, 1.29);
-  -moz-transition-timing-function: cubic-bezier(0.88, -0.25, 0.185, 1.29);
-  -o-transition-timing-function: cubic-bezier(0.88, -0.25, 0.185, 1.29);
-  transition-timing-function: cubic-bezier(0.88, -0.25, 0.185, 1.29);
-  /* custom */
 }
 
+circle {
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0);
+  transform-origin: 50% 50%;
+}
+
+/*
 .invisible {
   opacity: 0;
-}
-
+}*/
 ul {
   list-style: none;
   padding-left: 0;
@@ -511,7 +527,7 @@ ul li {
   margin-bottom: 5px;
 }
 ul li a:hover {
-  border-bottom: 2px solid #ADABA5;
+  border-bottom: 2px solid #D6D6D6;
 }
 
 nav {
@@ -554,6 +570,17 @@ article::after {
   display: none;
 }
 
+.invisible {
+  opacity: 0;
+}
+
+.nav-on-view {
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
 @font-face {
   font-family: Basis-Grotesque-Bold;
   src: url(../fonts/basis_grotesque_trial_bold.otf);
@@ -587,13 +614,18 @@ h1 {
 }
 h1 > span.white {
   color: white;
-  font-family: Basis-Grotesque-Bold, Helvetica, sans-serif;
-  letter-spacing: -4;
+}
+
+h1 > div, h1 > span div {
+  display: inline-block;
+  opacity: 1;
+}
+h1 > div:hover, h1 > span div:hover {
+  cursor: pointer;
 }
 
 text {
   font-size: 0px;
-  mix-blend-mode: difference;
 }
 
 h2 {
@@ -616,12 +648,12 @@ nav {
 
 address, nav {
   font-style: normal;
-  color: #ADABA5;
+  color: black;
   margin-bottom: 30px;
 }
 
 .underline {
-  border-bottom: 2px solid #ADABA5;
+  border-bottom: 2px solid #D6D6D6;
 }
 
 p {

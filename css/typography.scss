@@ -38,15 +38,22 @@ h1 {
    margin: 0;
    > span.white{
       color: white;
-      font-family: Basis-Grotesque-Bold, Helvetica, sans-serif;
-      letter-spacing: -4;
    }
 }
+
+h1 > div, h1 > span div{
+   display: inline-block;
+   opacity: 1;
+   &:hover{
+      cursor: pointer;
+   }
+}
+
+
 
 text {
    @extend %regular;
    font-size: 0px;
-   mix-blend-mode: difference;
 }
 
 h2 {
@@ -69,7 +76,7 @@ nav {
 
 address, nav {
    font-style: normal;
-   color: $gray;
+   color: black;
    margin-bottom: 30px;
 }
 
