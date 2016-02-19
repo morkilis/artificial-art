@@ -72,16 +72,21 @@ h3 {
 nav {
    font-size: 14px;
    line-height: 18px;
+   mix-blend-mode: difference;
+   color: white;
+
+
 }
 
 address, nav {
    font-style: normal;
-   color: black;
    margin-bottom: 30px;
+
 }
 
 .underline {
-   border-bottom: 2px solid $gray;
+   border-bottom: 2px solid white;
+   mix-blend-mode: difference;
 }
 
 p {

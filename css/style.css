@@ -409,7 +409,6 @@ body {
   margin: 0;
   width: 100%;
   vertical-align: top;
-  background-color: white;
 }
 
 main {
@@ -418,27 +417,28 @@ main {
 }
 
 div.marble {
-  background-image: url(marble.jpg);
-  opacity: 0.5;
+  /*background-image: url(marble.jpg);*/
+  background-color: #D6D6D6;
+  /*opacity: 0.5;*/
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: -1;
-  background: url(marble.jpg) no-repeat -200px -200px fixed;
-  -webkit-background-size: cover;
+  /*background: url(marble.jpg) no-repeat -200px -200px fixed; */
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-size: 180%;
+  background-size: 180%;*/
 }
 
-div.mouse-sand-box {
+/*div.mouse-sand-box {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 10;
 }
-
+*/
 section {
   background-color: white;
   margin: 0;
@@ -463,10 +463,10 @@ header {
 
 nav {
   opacity: 1;
-  -webkit-transition: all 0.8s ease-in-out;
-  -moz-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
-  transition: all 0.8s ease-in-out;
+  /*  -webkit-transition: all 0.8s ease-in-out; 
+       -moz-transition: all 0.8s ease-in-out; 
+         -o-transition: all 0.8s ease-in-out; 
+            transition: all 0.8s ease-in-out;*/
 }
 
 #down-arrow {
@@ -527,7 +527,8 @@ ul li {
   margin-bottom: 5px;
 }
 ul li a:hover {
-  border-bottom: 2px solid #D6D6D6;
+  border-bottom: 2px solid white;
+  mix-blend-mode: difference;
 }
 
 nav {
@@ -644,16 +645,18 @@ h3 {
 nav {
   font-size: 14px;
   line-height: 18px;
+  mix-blend-mode: difference;
+  color: white;
 }
 
 address, nav {
   font-style: normal;
-  color: black;
   margin-bottom: 30px;
 }
 
 .underline {
-  border-bottom: 2px solid #D6D6D6;
+  border-bottom: 2px solid white;
+  mix-blend-mode: difference;
 }
 
 p {

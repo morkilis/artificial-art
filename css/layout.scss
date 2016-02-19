@@ -3,7 +3,6 @@ body {
   margin: 0;
   width: 100%;
   vertical-align: top;
-  background-color: white;
 }
 
 main {
@@ -12,31 +11,29 @@ main {
 }
 
 div.marble {
-  background-image: url(marble.jpg);
-  opacity: 0.5;
+  /*background-image: url(marble.jpg);*/
+  background-color: $gray;
+  /*opacity: 0.5;*/
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: -1;
 
-  background: url(marble.jpg) no-repeat -200px -200px fixed; 
-  -webkit-background-size: cover;
+  /*background: url(marble.jpg) no-repeat -200px -200px fixed; */
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-size: 180%;
-
-
-
+  background-size: 180%;*/
 }
 
-div.mouse-sand-box {
+/*div.mouse-sand-box {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 10;
 }
-
+*/
 section {
   background-color: white;
   margin: 0;
@@ -61,10 +58,10 @@ header {
 
 nav {
   opacity: 1;
-  -webkit-transition: all 0.8s ease-in-out; 
+/*  -webkit-transition: all 0.8s ease-in-out; 
      -moz-transition: all 0.8s ease-in-out; 
        -o-transition: all 0.8s ease-in-out; 
-          transition: all 0.8s ease-in-out;
+          transition: all 0.8s ease-in-out;*/
 }
 
 #down-arrow {
@@ -120,7 +117,8 @@ ul {
     cursor: pointer;
     margin-bottom: 5px;
     a:hover {         
-      border-bottom: 2px solid $gray;
+      border-bottom: 2px solid white;
+      mix-blend-mode: difference;
     }
   }
 }
@@ -130,6 +128,7 @@ nav {
   width: 300px;
   top: 100px;
   left: 30px;
+
 }
 
 article {
@@ -157,7 +156,7 @@ article {
 }
 
 .nav-on-view{
-   -webkit-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
      -moz-transition: all 0.1s ease-in-out;
        -o-transition: all 0.1s ease-in-out;
           transition: all 0.1s ease-in-out; 

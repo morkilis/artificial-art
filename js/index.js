@@ -1,21 +1,49 @@
 "use strict";
 
-var getRandom = function (array) {
+function getRandom(array) {
    var i = parseInt(Math.random()*(array.length));
     return array[i];
 }
 
-$(function() {
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-  var title_letters_array = $('.hover div');
-  var $randomletter = getRandom(title_letters_array);
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-  function twinkle() {
-    $randomletter.css('opacity','0');
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
 
+  return array;
+}
 
-  console.log($randomletter);
+
+$(function() {
+
+  var title_letters_array = $('.twinkle div');
+  var randomletter = getRandom(title_letters_array);
+
+  function twinkle() {
+    // $(randomletter).css('opacity','0');
+    for (var i = 0; i <= title_letters_array.length; i++) {
+      setTimeout(function(){
+        $(title_letters_array[i]).addClass('fade-in-out');
+      }, 400);
+    }
+  }
+
+  // twinkle();
+  console.log(randomletter);
+
+  shuffle(title_letters_array);
+  console.log(title_letters_array);
 
    //pop and rotate RSVP
   var $elie = $(".rsvp-button"), degree = 0, timer;
@@ -75,29 +103,30 @@ $(function() {
 var moveForce = 60; // max popup movement in pixels
 var rotateForce = 20; // max popup rotation in deg
 
-$('.mouse-sand-box').mousemove(function(e) {
-    var docX = $(document).width();
-    var docY = $(document).height();
+// $('.mouse-sand-box').mousemove(function(e) {
+//     var docX = $(document).width();
+//     var docY = $(document).height();
 
-    var backgroundPos = $('.marble').css('backgroundPosition').split(" ");
-    //now contains an array like ["0%", "50px"]
+//     var backgroundPos = $('.marble').css('backgroundPosition').split(" ");
+//     //now contains an array like ["0%", "50px"]
 
-    var imgPosX = backgroundPos[0],
-        imgPosY = backgroundPos[1];
+//     var imgPosX = backgroundPos[0],
+//         imgPosY = backgroundPos[1];
 
-        console.log(imgPosX,imgPosY);
+//         console.log(imgPosX,imgPosY);
     
-    var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
-    var moveY = (e.pageY - docY/8) / (docY/8) * -moveForce;
+//     var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
+//     var moveY = (e.pageY - docY/8) / (docY/8) * -moveForce;
     
-    // var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
-    // var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
+//     // var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
+//     // var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
     
-    $('.marble')
-        .css('background-position', (moveX-200)+'px '+ (moveY-200)+'px');
+//     $('.marble')
+//         // .css('background-position', (moveX-200)+'px '+ (moveY-200)+'px');
+//         .css('background', 'url(css/marble.jpg) no-repeat '+(moveX-200)+'px '+ (moveY-200)+'px fixed');
 
-        // .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
-});
+//         // .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
+// });
 
 });
 
