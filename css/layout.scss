@@ -121,6 +121,16 @@ article {
  @include outer-container;
 }
 
+#schedule p {
+  text-indent: 0;
+  margin-bottom: 20px;
+
+}
+
+#artists p:first-of-type {
+  @include shift(2);
+}
+
 footer {
   background-color: white;
   article {
@@ -133,8 +143,20 @@ footer {
   color: $gray;
 }
 
+.two-columns {
+  @include span-columns(2);
+}
+
+.three-columns {
+  @include span-columns(3);
+}
+
 .four-columns {
   @include span-columns(4);
+}
+
+.five-columns {
+  @include span-columns(5);
 }
 
 .six-columns {

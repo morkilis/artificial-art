@@ -537,6 +537,15 @@ article::after {
   display: table;
 }
 
+#schedule p {
+  text-indent: 0;
+  margin-bottom: 20px;
+}
+
+#artists p:first-of-type {
+  margin-left: 17.05961%;
+}
+
 footer {
   background-color: white;
 }
@@ -549,6 +558,26 @@ footer article {
   color: #D6D6D6;
 }
 
+.two-columns {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+}
+.two-columns:last-child {
+  margin-right: 0;
+}
+
+.three-columns {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+.three-columns:last-child {
+  margin-right: 0;
+}
+
 .four-columns {
   float: left;
   display: block;
@@ -556,6 +585,16 @@ footer article {
   width: 31.76157%;
 }
 .four-columns:last-child {
+  margin-right: 0;
+}
+
+.five-columns {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+}
+.five-columns:last-child {
   margin-right: 0;
 }
 
@@ -700,6 +739,9 @@ nav {
   mix-blend-mode: difference;
   color: white;
 }
+nav ul > li a:hover, nav ul > li a:active, nav ul > li a:focus {
+  outline: none;
+}
 
 address, nav {
   font-style: normal;
@@ -711,11 +753,16 @@ address, nav {
   mix-blend-mode: difference;
 }
 
+.right-align {
+  text-align: right;
+  padding-right: 18px;
+}
+
 p {
   margin: 0;
   text-indent: 60px;
 }
-p:first-of-type, p.two-columns {
+p:first-of-type, p.five-columns {
   text-indent: 0;
 }
 
