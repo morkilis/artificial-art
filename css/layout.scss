@@ -11,29 +11,13 @@ main {
 }
 
 div.marble {
-  /*background-image: url(marble.jpg);*/
   background-color: $gray;
-  /*opacity: 0.5;*/
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: -1;
-
-  /*background: url(marble.jpg) no-repeat -200px -200px fixed; */
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-size: 180%;*/
 }
 
-/*div.mouse-sand-box {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 10;
-}
-*/
 section {
   background-color: white;
   margin: 0;
@@ -58,10 +42,10 @@ header {
 
 nav {
   opacity: 1;
-/*  -webkit-transition: all 0.8s ease-in-out; 
+  -webkit-transition: all 0.8s ease-in-out; 
      -moz-transition: all 0.8s ease-in-out; 
        -o-transition: all 0.8s ease-in-out; 
-          transition: all 0.8s ease-in-out;*/
+          transition: all 0.8s ease-in-out;
 }
 
 #down-arrow {
@@ -104,12 +88,6 @@ circle {
   transform-origin: 50% 50%;
 }
 
-
-/*
-.invisible {
-  opacity: 0;
-}*/
-
 ul {
   list-style: none;
   padding-left: 0;
@@ -122,6 +100,11 @@ ul {
     }
   }
 }
+
+.highlight {
+  border-bottom: 2px solid white !important;
+}
+
 
 nav {
   position: fixed;
@@ -138,13 +121,28 @@ article {
  @include outer-container;
 }
 
-.terms-conds {
-  background-color: black;
-  color: white;
+footer {
+  background-color: white;
+  article {
+    padding: 20px 0 20px 0;
+  }  
 }
 
-.two-columns {
+.terms-conds {
+  background-color: black;
+  color: $gray;
+}
+
+.four-columns {
+  @include span-columns(4);
+}
+
+.six-columns {
   @include span-columns(6);
+}
+
+.nine-columns {
+  @include span-columns(9);
 }
 
 .hidden {
@@ -155,9 +153,35 @@ article {
   opacity: 0;
 }
 
+.copyrights {
+  opacity: 0.5;
+  text-align: right;
+}
+
 .nav-on-view{
   -webkit-transition: all 0.1s ease-in-out;
      -moz-transition: all 0.1s ease-in-out;
        -o-transition: all 0.1s ease-in-out;
           transition: all 0.1s ease-in-out; 
 }
+
+@keyframes fadeInAnimation { /* flame pulses */
+  0%   { opacity:0; }
+  100% { opacity:1; }
+}
+
+@keyframes animateArrow { /* flame pulses */
+  0%   { bottom: 30px; }
+  50%  { bottom: 35px; }
+  100% { bottom: 30px; }
+}
+.animate-fade-in {
+    opacity:1;
+    animation: fadeInAnimation 1s 1;
+}
+
+.animate-arrow {
+    bottom: 30px;
+    animation: animateArrow 0.2s 2;
+/*    animation-delay: 1s;
+*/}

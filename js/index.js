@@ -1,10 +1,5 @@
 "use strict";
 
-function getRandom(array) {
-   var i = parseInt(Math.random()*(array.length));
-    return array[i];
-}
-
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -20,32 +15,101 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
 
+function twinkle(array, index, className) {
+   setTimeout(function () {
+      $(array[index]).addClass(className);
+      index++;
+      if (index < array.length+1) {
+         twinkle(array, index, className);
+      }
+   }, 300)
+}
+
+var counter = 0,
+    delay = 0;
+
+function animateTwinkle(array, counter, delay) {
+  setTimeout(function () {
+    twinkle(array[counter].name, array[counter].i, 'animate-fade-in');
+    counter++;
+    delay =+ 100;
+    console.log(counter);
+    if (counter < 4) {
+      animateTwinkle(array, counter,delay);
+    }   
+  }, delay );
+}
+
+//scrolls to #{blah}link
+function goToByScroll(id) {
+    // Remove "link" from the ID
+    id = id.replace("link", "");
+    // Scroll
+    $('html,body').animate({
+        scrollTop: $("#"+id).offset().top},
+        { duration: 'slow', easing: 'swing'});
+}
+
+var linkID = "";
+
+function highlightLink(id) {
+    // Add "link" from the ID
+    linkID = id + "link";
+    // Highlight relevant link
+    $("#"+linkID).css({"border-bottom":"2px solid white"}).parent().siblings().children().css({"border-bottom":"none"});
+}
 
 $(function() {
 
-  var title_letters_array = $('.twinkle div');
-  var randomletter = getRandom(title_letters_array);
+  var letters1 = $('.twinkle div');
+  $(letters1).addClass('invisible');
+  $('#down-arrow').addClass('invisible');
+  shuffle(letters1);
+  var letters2 = letters1.splice(0, Math.floor(letters1.length / 4)),
+      letters3 = letters1.splice(0, Math.floor(letters1.length / 3)),
+      letters4 = letters1.splice(0, Math.floor(letters1.length / 2));
+  
+  var letters = [ { name:letters1, i:0 },
+                  { name:letters2, i:0 },
+                  { name:letters3, i:0 },
+                  { name:letters4, i:0 }
+                ];
 
-  function twinkle() {
-    // $(randomletter).css('opacity','0');
-    for (var i = 0; i <= title_letters_array.length; i++) {
-      setTimeout(function(){
-        $(title_letters_array[i]).addClass('fade-in-out');
-      }, 400);
-    }
-  }
+  animateTwinkle(letters, counter, delay);
+  setTimeout(function(){
+    $('.twinkle div').removeClass('invisible animate-fade-in');
+    $('#down-arrow').addClass('animate-fade-in animate-arrow');
+  },4000);
 
-  // twinkle();
-  console.log(randomletter);
+  $("nav > ul > li > a").click(function(e) { 
+    // Prevent a page reload when a link is pressed
+    e.preventDefault(); 
+    
+    // Call the scroll function
+    goToByScroll($(this).attr("id"));
+    
+    // Highlight / unhighlight link on click
+    $(this).parent().siblings().children().css({"border-bottom":"none"});
+    $(this).css({"border-bottom":"2px solid white"});
+  });
 
-  shuffle(title_letters_array);
-  console.log(title_letters_array);
+  // Highlight / unhighlight link on hover
+  $("li > a").hover(function(){
+    $(this).addClass("highlight");
+      }, function(){
+    $(this).removeClass("highlight");
+      });
+        
+  $("section").hover(function(){
+    // Highlight link when scrolling
+    highlightLink($(this).attr("id")); 
+  });
 
-   //pop and rotate RSVP
+
+  //pop and rotate RSVP
   var $elie = $(".rsvp-button"), degree = 0, timer;
   rotate();
   function rotate() {
@@ -61,10 +125,6 @@ $(function() {
       clearTimeout(timer);
     }, function() {
       rotate();
-    });
-
-    $('.hover div').hover(function() {
-
     });
 
   //unpin the header
@@ -92,42 +152,4 @@ $(function() {
     }
   });
 
-
-  // $('.mouse-sand-box').mousemove(function( event ) {
-  //   var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
-  //   var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
-    // $( "span:first" ).text( "( event.pageX, event.pageY ) : " + pageCoords );
-    // $( "span:last" ).text( "( event.clientX, event.clientY ) : " + clientCoords );    
-  // });
-
-var moveForce = 60; // max popup movement in pixels
-var rotateForce = 20; // max popup rotation in deg
-
-// $('.mouse-sand-box').mousemove(function(e) {
-//     var docX = $(document).width();
-//     var docY = $(document).height();
-
-//     var backgroundPos = $('.marble').css('backgroundPosition').split(" ");
-//     //now contains an array like ["0%", "50px"]
-
-//     var imgPosX = backgroundPos[0],
-//         imgPosY = backgroundPos[1];
-
-//         console.log(imgPosX,imgPosY);
-    
-//     var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
-//     var moveY = (e.pageY - docY/8) / (docY/8) * -moveForce;
-    
-//     // var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
-//     // var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
-    
-//     $('.marble')
-//         // .css('background-position', (moveX-200)+'px '+ (moveY-200)+'px');
-//         .css('background', 'url(css/marble.jpg) no-repeat '+(moveX-200)+'px '+ (moveY-200)+'px fixed');
-
-//         // .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
-// });
-
 });
-
-

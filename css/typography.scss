@@ -27,6 +27,12 @@ section {
    @include body;
 }
 
+footer {
+   @extend %regular;
+   font-size: 14px;
+   line-height: 16px;
+}
+
 h1 {
    font-family: 'Lora', serif;
    font-size: 140px;
@@ -44,9 +50,6 @@ h1 {
 h1 > div, h1 > span div{
    display: inline-block;
    opacity: 1;
-   &:hover{
-      cursor: pointer;
-   }
 }
 
 
