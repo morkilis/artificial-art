@@ -141,6 +141,9 @@ $(function() {
        $('circle').attr("class", "");
        $('text').attr('class','');
        $('nav').addClass('invisible nav-on-view');
+       var marginTop = $('.fixed').css('margin-top');
+           marginTop = parseInt(marginTop, 10);
+       var h1_from_top = window.innerHeight / 2 + marginTop;
     }
     if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
       $('circle').attr("class", "pop-in");
@@ -156,9 +159,9 @@ $(function() {
        $('circle').attr("class", "");
        $('text').attr('class','');
        $('nav').addClass('invisible nav-on-view');
-        var marginTop = $('.fixed').css('margin-top');
-            marginTop = parseInt(marginTop, 10);
-        var h1_from_top = window.innerHeight / 2 + marginTop;
+       marginTop = $('.fixed').css('margin-top');
+       marginTop = parseInt(marginTop, 10);
+       h1_from_top = window.innerHeight / 2 + marginTop;
         $('.title-header').css('padding-top', h1_from_top);
     }
     if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
@@ -170,9 +173,9 @@ $(function() {
 });
 
 $( window ).resize(function() {
-  var marginTop = $('.fixed').css('margin-top');
-      marginTop = parseInt(marginTop, 10);
-  var h1_from_top = window.innerHeight / 2 + marginTop;
+  marginTop = $('.fixed').css('margin-top');
+  marginTop = parseInt(marginTop, 10);
+  h1_from_top = window.innerHeight / 2 + marginTop;
 
   $('.title-header').css('padding-top', h1_from_top);
 });
