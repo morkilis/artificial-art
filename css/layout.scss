@@ -3,6 +3,7 @@ body {
   margin: 0;
   width: 100%;
   vertical-align: top;
+
 }
 
 main {
@@ -21,6 +22,9 @@ div.marble {
 section {
   background-color: white;
   margin: 0;
+  @include at-tablet {
+    padding: 20px;
+  }
 }
 
 section.blank-spacer {
@@ -30,6 +34,9 @@ section.blank-spacer {
 
 section.title-header {
   height: 75%;
+/*  @include at-mobile {
+    height: 50%;
+  }*/
 }
 
 header {
@@ -38,6 +45,9 @@ header {
   width: 100%;
   margin-bottom: 120px;
   height: 342px;
+  @include at-mobile {
+    margin-left: 0;
+  }
 }
 
 nav {
@@ -46,11 +56,9 @@ nav {
   width: 300px;
   top: 60px;
   left: 30px;
-
-/*  -webkit-transition: all 0.8s ease-in-out; 
-     -moz-transition: all 0.8s ease-in-out; 
-       -o-transition: all 0.8s ease-in-out; 
-          transition: all 0.8s ease-in-out;*/
+  @include at-mobile {
+    display: none;
+  }
 }
 
 #down-arrow {
@@ -70,6 +78,7 @@ nav {
   margin-top: -200px;
   @include at-tablet {
     margin-top: -140px;
+    margin-left: -20px;
   }
   @include at-mobile {
     margin-top: -116px;
@@ -82,6 +91,11 @@ nav {
   right: 30px;
   opacity: 1;
   mix-blend-mode: difference;
+  @include at-mobile {
+    bottom: -20px;
+    right:-20px;
+    mix-blend-mode: initial;
+  }
 }
 
 circle, text {
@@ -101,6 +115,9 @@ circle {
 
 .pop-in {
   @include transform-scale(1,1);
+  @include at-mobile {
+    @include transform-scale(0.6,0.6);
+  }
 }
 
 ul {
@@ -125,27 +142,78 @@ ul {
 }
 
 article {
- padding: 90px 0 200px 0;
- margin: 0px auto;
- width: 640px;
- @include outer-container;
+  padding: 90px 0 200px 0;
+  margin: 0px auto;
+  width: 640px;
+  @include outer-container;
+  @include at-tablet {
+    padding: 40px 0 80px 0;
+    margin: 0;
+    width: 100%;
+  }
 }
 
-#schedule p {
-  text-indent: 0;
-  margin-bottom: 20px;
-
+#schedule {
+  p {
+    text-indent: 0;
+    margin-bottom: 20px;
+  }
+  @include at-mobile {
+    div:first-of-type{
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    div:nth-of-type(2){
+      width: 30%;
+      text-align: left;
+      padding-right: 0;
+    }
+    div:nth-of-type(3){
+      width: 67%;
+    }
+  }
 }
 
-#artists p:first-of-type {
-  @include shift(2);
+#artists p{
+  &:first-of-type {
+    @include shift(2);
+    @include at-mobile {
+      @include shift(0);
+    }
+  }
+  @include at-mobile {
+    &:last-of-type {
+      @include shift(0.6);
+    }  
+  }
+
 }
 
 footer {
   background-color: white;
   article {
     padding: 20px 0 20px 0;
-  }  
+  }
+  @include at-tablet {
+    padding: 20px;
+  }
+  @include at-mobile {
+    article {
+      padding: 20px 0 0 0;
+    }
+    div:first-of-type{
+      width: 48%;
+      margin-bottom: 30px;
+    }
+    div:nth-of-type(2){
+      width: 47%;
+      margin-bottom: 30px;
+    }
+    div:nth-of-type(3){
+      width: 100%;
+      text-align: left;
+    }
+  }
 }
 
 .terms-conds {
@@ -167,6 +235,9 @@ footer {
 
 .five-columns {
   @include span-columns(5);
+  @include at-mobile {
+    /*@include span-columns(6);*/
+  }
 }
 
 .six-columns {
