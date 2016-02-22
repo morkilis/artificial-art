@@ -67,9 +67,11 @@ function setNavMargin() {
       marginTop = parseInt(marginTop, 10);
   var h1_from_top = window.innerHeight / 2 + marginTop;
   $('.title-header').css('padding-top', h1_from_top);
+  console.log('marginTop:'+marginTop+'  h1_from_top:'+h1_from_top);
 }
 
 $(function() {
+  setNavMargin();
   var letters1 = $('.twinkle div');
   $(letters1).addClass('invisible');
   $('#down-arrow').addClass('invisible');
@@ -90,7 +92,7 @@ $(function() {
     $('#down-arrow').addClass('animate-fade-in animate-arrow');
   },4000);
 
-  setNavMargin();
+  
 
   $("nav > ul > li > a").click(function(e) { 
     // Prevent a page reload when a link is pressed
