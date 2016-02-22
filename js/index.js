@@ -62,6 +62,13 @@ function highlightLink(id) {
     $("#"+linkID).css({"border-bottom":"2px solid white"}).parent().siblings().children().css({"border-bottom":"none"});
 }
 
+function setNavMargin() {
+  var marginTop = $('.fixed').css('margin-top');
+      marginTop = parseInt(marginTop, 10);
+  var h1_from_top = window.innerHeight / 2 + marginTop;
+  $('.title-header').css('padding-top', h1_from_top);
+}
+
 $(function() {
   var letters1 = $('.twinkle div');
   $(letters1).addClass('invisible');
@@ -82,6 +89,8 @@ $(function() {
     $('.twinkle div').removeClass('invisible animate-fade-in');
     $('#down-arrow').addClass('animate-fade-in animate-arrow');
   },4000);
+
+  setNavMargin();
 
   $("nav > ul > li > a").click(function(e) { 
     // Prevent a page reload when a link is pressed
@@ -113,14 +122,13 @@ $(function() {
   //pop and rotate RSVP
   var $rsvp = $(".rsvp-button"), degree = 0, timer;
   rotate();
-  function rotate() {
-      
+  function rotate() {      
     $rsvp.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
     $rsvp.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
     timer = setTimeout(function() {
-       ++degree; rotate();
-      },15);
-    }
+      ++degree; rotate();
+    },15);
+  }
 
     $(".rsvp-button").hover(function() {
       clearTimeout(timer);
@@ -130,25 +138,23 @@ $(function() {
 
   //unpin the header
   var distance = $('.title-header').offset().top,
-      $window = $(window);
+      $window  = $(window);
 
 
   if ( $window.scrollTop() >= distance ) {
       $('header').removeClass('fixed');
       $('nav').removeClass('invisible nav-on-view');
-    } else {
+  } else {
        $('header').addClass('fixed');
        $('circle').attr("class", "");
        $('text').attr('class','');
        $('nav').addClass('invisible nav-on-view');
-       var marginTop = $('.fixed').css('margin-top');
-           marginTop = parseInt(marginTop, 10);
-       var h1_from_top = window.innerHeight / 2 + marginTop;
-    }
-    if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
-      $('circle').attr("class", "pop-in");
-      $('text').attr('class','rsvp-font-size');
-    }
+       setNavMargin();
+  }
+  if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
+    $('circle').attr("class", "pop-in");
+    $('text').attr('class','rsvp-font-size');
+  }
 
   $window.scroll(function() {
     if ( $window.scrollTop() >= distance ) {
@@ -159,10 +165,7 @@ $(function() {
        $('circle').attr("class", "");
        $('text').attr('class','');
        $('nav').addClass('invisible nav-on-view');
-       marginTop = $('.fixed').css('margin-top');
-       marginTop = parseInt(marginTop, 10);
-       h1_from_top = window.innerHeight / 2 + marginTop;
-        $('.title-header').css('padding-top', h1_from_top);
+       setNavMargin();
     }
     if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
       $('circle').attr("class", "pop-in");
@@ -173,9 +176,5 @@ $(function() {
 });
 
 $( window ).resize(function() {
-  marginTop = $('.fixed').css('margin-top');
-  marginTop = parseInt(marginTop, 10);
-  h1_from_top = window.innerHeight / 2 + marginTop;
-
-  $('.title-header').css('padding-top', h1_from_top);
+  setNavMargin();
 });
