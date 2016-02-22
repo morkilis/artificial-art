@@ -177,6 +177,10 @@ footer {
 
 .invisible {
   opacity: 0;
+  li, a {
+    cursor: default;
+    pointer-events: none;
+  }
 }
 
 .copyrights {

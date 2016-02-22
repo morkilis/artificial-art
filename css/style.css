@@ -632,6 +632,10 @@ footer article {
 .invisible {
   opacity: 0;
 }
+.invisible li, .invisible a {
+  cursor: default;
+  pointer-events: none;
+}
 
 .copyrights {
   opacity: 0.5;
