@@ -105,7 +105,8 @@ $(function() {
         
   $("section").hover(function(){
     // Highlight link when scrolling
-    highlightLink($(this).attr("id")); 
+    highlightLink($(this).attr("id"));
+    $('#toplink').css({"border-bottom":"none"}); 
   });
 
 
