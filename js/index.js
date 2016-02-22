@@ -173,8 +173,7 @@ $(function() {
     }
   });
 
-});
-
-$( window ).resize(function() {
-  setNavMargin();
+  $( window ).resize(function() {
+    setNavMargin();
+  });
 });
