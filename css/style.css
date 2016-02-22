@@ -782,7 +782,7 @@ footer article {
 
 @font-face {
   font-family: Basis-Grotesque-Bold;
-  src: url(../fonts/basis_grotesque_trial_bold.otf);
+  src: url(../fonts/basis_grotesque_bold.otf);
 }
 section, footer, text {
   color: #000;
