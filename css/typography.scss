@@ -75,17 +75,23 @@ nav {
    line-height: 18px;
    mix-blend-mode: difference;
    color: white;
-   ul > li {
-      a:hover, a:active, a:focus {
-         outline: none;
-      }
-   }
+}
+
+a:hover, a:active, a:focus {
+   outline: none;
 }
 
 address, nav {
    font-style: normal;
    margin-bottom: 30px;
+}
 
+.small-title {
+   font-family: 'Lora', serif;
+   font-size: 28px;
+   font-weight: 400;
+   letter-spacing: -1;
+   margin-bottom: 30px;
 }
 
 .underline {

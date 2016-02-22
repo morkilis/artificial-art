@@ -63,7 +63,6 @@ function highlightLink(id) {
 }
 
 $(function() {
-
   var letters1 = $('.twinkle div');
   $(letters1).addClass('invisible');
   $('#down-arrow').addClass('invisible');
@@ -94,6 +93,7 @@ $(function() {
     // Highlight / unhighlight link on click
     $(this).parent().siblings().children().css({"border-bottom":"none"});
     $(this).css({"border-bottom":"2px solid white"});
+    $('#toplink').css({"border-bottom":"none"});
   });
 
   // Highlight / unhighlight link on hover
@@ -110,12 +110,12 @@ $(function() {
 
 
   //pop and rotate RSVP
-  var $elie = $(".rsvp-button"), degree = 0, timer;
+  var $rsvp = $(".rsvp-button"), degree = 0, timer;
   rotate();
   function rotate() {
       
-    $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
-    $elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
+    $rsvp.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
+    $rsvp.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
     timer = setTimeout(function() {
        ++degree; rotate();
       },15);
@@ -130,10 +130,25 @@ $(function() {
   //unpin the header
   var distance = $('.title-header').offset().top,
       $window = $(window),
-      h1_from_top = window.innerHeight / 2 - 180;
+      h1_from_top = window.innerHeight / 2 - 200;
 
   $('.title-header').css('padding-top', h1_from_top);
   // console.log(h1_from_top);
+
+
+  if ( $window.scrollTop() >= distance ) {
+      $('header').removeClass('fixed');
+      $('nav').removeClass('invisible nav-on-view');
+    } else {
+       $('header').addClass('fixed');
+       $('circle').attr("class", "");
+       $('text').css('font-size','0');
+       $('nav').addClass('invisible nav-on-view');
+    }
+    if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
+      $('circle').attr("class", "pop-in");
+      $('text').css('font-size','28px');
+    }
 
   $window.scroll(function() {
     if ( $window.scrollTop() >= distance ) {
@@ -141,13 +156,12 @@ $(function() {
       $('nav').removeClass('invisible nav-on-view');
     } else {
        $('header').addClass('fixed');
-       $('circle').css({ WebkitTransform: 'scale(0,0)'});
+       $('circle').attr("class", "");
        $('text').css('font-size','0');
        $('nav').addClass('invisible nav-on-view');
     }
-
     if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
-      $('circle').css({ WebkitTransform: 'scale(1,1)'});
+      $('circle').attr("class", "pop-in");
       $('text').css('font-size','28px');
     }
   });
