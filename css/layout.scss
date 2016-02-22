@@ -56,7 +56,7 @@ nav {
   width: 300px;
   top: 60px;
   left: 30px;
-  @include at-mobile {
+  @include at-tablet {
     display: none;
   }
 }
