@@ -45,6 +45,14 @@ h1 {
    > span.white{
       color: white;
    }
+   @include at-tablet {
+      font-size: 80px;
+      line-height: 68px;
+   }
+   @include at-mobile {
+      font-size: 54px;
+      line-height: 48px;
+   }
 }
 
 h1 > div, h1 > span div{

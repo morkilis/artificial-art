@@ -68,6 +68,12 @@ nav {
   position: fixed;
   top: 50%;
   margin-top: -200px;
+  @include at-tablet {
+    margin-top: -140px;
+  }
+  @include at-mobile {
+    margin-top: -116px;
+  }
 }
 
 .rsvp-button {
