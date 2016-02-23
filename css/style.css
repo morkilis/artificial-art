@@ -611,7 +611,7 @@ article::after {
     margin-bottom: 30px;
   }
   #schedule div:nth-of-type(2) {
-    width: 30%;
+    width: 24%;
     text-align: left;
     padding-right: 0;
   }
@@ -813,7 +813,7 @@ section {
 @media screen and (max-width: 540px) {
   section {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 22px;
   }
 }
 
