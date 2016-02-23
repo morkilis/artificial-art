@@ -817,9 +817,31 @@ section {
   }
 }
 
+p {
+  margin: 0;
+  text-indent: 60px;
+}
+p:first-of-type, p.five-columns {
+  text-indent: 0;
+}
+p > a {
+  border-bottom: 2px solid black;
+}
+p > a:hover {
+  color: #7612DB;
+  border-bottom: 2px solid #7612DB;
+}
+
 footer {
   font-size: 14px;
   line-height: 16px;
+}
+footer a {
+  border-bottom: none;
+}
+footer a:hover {
+  color: #7612DB;
+  border-bottom: none;
 }
 
 h1 {
@@ -916,14 +938,6 @@ address, nav {
 .terms-conds p {
   text-indent: 0;
   margin-bottom: 20px;
-}
-
-p {
-  margin: 0;
-  text-indent: 60px;
-}
-p:first-of-type, p.five-columns {
-  text-indent: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

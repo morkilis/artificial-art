@@ -183,7 +183,7 @@ article {
   }
 }
 
-#artists p{
+#artists p {
   &:first-of-type {
     @include shift(2);
     @include at-mobile {

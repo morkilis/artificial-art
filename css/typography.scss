@@ -31,10 +31,32 @@ section {
    @include body;
 }
 
+p {
+   margin: 0;
+   text-indent: 60px;
+   &:first-of-type, &.five-columns {
+      text-indent: 0;
+   }
+   > a {
+      border-bottom: 2px solid black;
+      &:hover {
+         color: $purple;
+         border-bottom: 2px solid $purple;
+      }
+   }
+}
+
 footer {
    @extend %regular;
    font-size: 14px;
    line-height: 16px;
+   a {
+      border-bottom: none;
+      &:hover {
+         color: $purple;
+         border-bottom: none;
+      }
+   }
 }
 
 h1 {
@@ -127,13 +149,4 @@ address, nav {
 .terms-conds p{
    text-indent: 0;
    margin-bottom: 20px;
-}
-
-
-p {
-   margin: 0;
-   text-indent: 60px;
-   &:first-of-type, &.five-columns {
-      text-indent: 0;
-   }
 }
