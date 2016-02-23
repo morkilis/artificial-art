@@ -610,13 +610,33 @@ article::after {
     width: 100%;
     margin-bottom: 30px;
   }
-  #schedule div:nth-of-type(2) {
-    width: 24%;
-    text-align: left;
-    padding-right: 0;
+}
+
+.desktop-schedule {
+  display: block;
+}
+@media screen and (max-width: 540px) {
+  .desktop-schedule {
+    display: none;
   }
-  #schedule div:nth-of-type(3) {
-    width: 67%;
+}
+
+.mobile-schedule {
+  display: none;
+}
+@media screen and (max-width: 540px) {
+  .mobile-schedule {
+    display: block;
+  }
+  .mobile-schedule p {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .mobile-schedule p:nth-of-type(1) {
+    width: 34%;
+  }
+  .mobile-schedule p:nth-of-type(2) {
+    width: 60%;
   }
 }
 
@@ -816,6 +836,12 @@ section {
     line-height: 22px;
   }
 }
+@media screen and (max-width: 540px) {
+  section#artists {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
 
 p {
   margin: 0;
@@ -865,8 +891,8 @@ h1 > span.white {
 }
 @media screen and (max-width: 540px) {
   h1 {
-    font-size: 64px;
-    line-height: 56px;
+    font-size: 56px;
+    line-height: 48px;
   }
 }
 

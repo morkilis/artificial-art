@@ -172,16 +172,33 @@ article {
       width: 100%;
       margin-bottom: 30px;
     }
-    div:nth-of-type(2){
-      width: 24%;
-      text-align: left;
-      padding-right: 0;
+  }
+}
+
+.desktop-schedule {
+  display: block;
+  @include at-mobile {
+    display: none;
+  }
+}
+
+.mobile-schedule {
+  display: none;
+  @include at-mobile {
+    display: block;
+    p {
+      display: inline-block;
+      vertical-align: top;
     }
-    div:nth-of-type(3){
-      width: 67%;
+    p:nth-of-type(1){
+      width: 34%;
+    }
+    p:nth-of-type(2){
+      width: 60%;
     }
   }
 }
+
 
 #artists p {
   &:first-of-type {
@@ -195,7 +212,6 @@ article {
       @include shift(0.6);
     }  
   }
-
 }
 
 footer {
