@@ -53,12 +53,16 @@ header {
 nav {
   opacity: 1;
   position: fixed;
-  width: 300px;
+  width: 190px;
   top: 60px;
   left: 30px;
   @include at-tablet {
     display: none;
   }
+}
+
+.nav-list {
+  margin-bottom: 30px;
 }
 
 #down-arrow {

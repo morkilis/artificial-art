@@ -462,7 +462,7 @@ header {
 nav {
   opacity: 1;
   position: fixed;
-  width: 300px;
+  width: 190px;
   top: 60px;
   left: 30px;
 }
@@ -470,6 +470,10 @@ nav {
   nav {
     display: none;
   }
+}
+
+.nav-list {
+  margin-bottom: 30px;
 }
 
 #down-arrow {
@@ -941,6 +945,11 @@ a:hover, a:active, a:focus {
 address, nav {
   font-style: normal;
   margin-bottom: 30px;
+}
+
+#callout {
+  color: #80FF00;
+  cursor: default;
 }
 
 .small-title {
