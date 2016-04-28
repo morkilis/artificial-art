@@ -3,7 +3,7 @@ body {
   margin: 0;
   width: 100%;
   vertical-align: top;
-
+  overflow: auto;
 }
 
 main {
@@ -87,6 +87,24 @@ nav {
 /*  @include at-mobile {
     margin-top: -150px;
   }*/
+}
+
+figure:hover {
+  cursor: pointer;
+}
+
+.featured {
+  @include span-columns(12);
+  margin: 60px 0 14px 0;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+img {
+  transition: opacity 0.4s ease-out; 
 }
 
 header h3 {
@@ -277,10 +295,6 @@ footer {
   @include span-columns(9);
 }
 
-.hidden {
-  display: none;
-}
-
 .invisible {
   opacity: 0;
   li, a {
@@ -321,3 +335,58 @@ footer {
     animation: animateArrow 0.2s 2;
 /*    animation-delay: 1s;
 */}
+
+.lightbox {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    overflow: scroll;
+    display: block;
+  article {
+    width: 820px;
+    background-color: white;
+    margin-bottom: 100px;
+    padding: 0;
+    @include at-tablet {
+        width: 100%;
+      }
+    img { 
+      width: 100%;
+      margin-bottom: 8px;
+      &:first-of-type{
+        margin-top: 40px;
+      }
+      @include at-tablet {
+        width: 100%;
+        &:first-of-type{
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .close {
+   background-color: white;
+    margin-top: 0px;
+    padding-top: 10px;
+    position: fixed;
+    text-align: right;
+    width: 820px;
+    height: 40px;
+    @include at-tablet {   
+      text-align: left;
+      top: 0px;
+    }
+  }
+}
+
+.lock {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}

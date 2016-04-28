@@ -175,6 +175,21 @@ $(function() {
     }
   });
 
+  // lightbox
+  $('.open-lightbox').click(function() {
+    $('body').addClass('lock');
+    $('.lightbox').animate({scrollTop : 0});
+    $('.lightbox').removeClass('hidden').removeClass('fade-out').addClass('fade-in');
+  });
+
+  $('.lightbox, h3.close').click(function() {
+    $('body').removeClass('lock');
+    $('.lightbox').removeClass('fade-in').addClass('fade-out');
+      setTimeout(function() {
+        $('.lightbox').addClass('hidden');
+      },800);
+  });
+
   $( window ).resize(function() {
     setNavMargin();
   });

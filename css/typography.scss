@@ -43,14 +43,16 @@ p {
    &:first-of-type, &.five-columns {
       text-indent: 0;
    }
-   > a {
-      border-bottom: 2px solid black;
-      &:hover {
-         color: $purple;
-         border-bottom: 2px solid $purple;
-      }
+}
+
+p > a, h3 > a {
+   border-bottom: 1.5px solid black;
+   &:hover {
+      color: $purple;
+      border-bottom: 1.5px solid $purple;
    }
 }
+
 
 footer {
    @extend %regular;
@@ -159,4 +161,12 @@ address, nav {
 .terms-conds p{
    text-indent: 0;
    margin-bottom: 20px;
+}
+
+.lightbox h3 {
+  text-align: right;
+}
+
+h3.close:hover {
+   cursor: pointer;
 }
