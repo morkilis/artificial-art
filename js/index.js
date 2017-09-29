@@ -123,7 +123,7 @@ $(function() {
 
   //pop and rotate RSVP
   var $rsvp = $(".rsvp-button"), degree = 0, timer;
-  rotate();
+  //rotate();
   function rotate() {      
     $rsvp.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
     $rsvp.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
@@ -153,9 +153,10 @@ $(function() {
        $('nav').addClass('invisible nav-on-view');
        setNavMargin();
   }
-  if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
+  if ( $window.scrollTop() == distance+window.innerHeight*0.8 ) {      
     $('circle').attr("class", "pop-in");
     $('text').attr('class','rsvp-font-size');
+    rotate();
   }
 
   $window.scroll(function() {
@@ -169,9 +170,10 @@ $(function() {
        $('nav').addClass('invisible nav-on-view');
        setNavMargin();
     }
-    if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
+    if ( $window.scrollTop() == distance+window.innerHeight*0.8 ) {      
       $('circle').attr("class", "pop-in");
       $('text').attr('class','rsvp-font-size');
+      rotate();
     }
   });
 
