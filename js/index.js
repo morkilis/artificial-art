@@ -111,7 +111,7 @@ $(function() {
 
   //pop and rotate RSVP
   var $elie = $(".rsvp-button"), degree = 0, timer;
-  rotate();
+  //rotate();
   function rotate() {
       
     $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
@@ -146,9 +146,10 @@ $(function() {
        $('nav').addClass('invisible nav-on-view');
     }
 
-    if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
+    if ( $window.scrollTop() == distance+window.innerHeight*0.8 ) {      
       $('circle').css({ WebkitTransform: 'scale(1,1)'});
       $('text').css('font-size','28px');
+      rotate();
     }
   });
 
