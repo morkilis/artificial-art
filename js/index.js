@@ -143,20 +143,20 @@ $(function() {
       $window  = $(window);
 
 
-//   if ( $window.scrollTop() >= distance ) {
-//       $('header').removeClass('fixed');
-//       $('nav').removeClass('invisible nav-on-view');
-//   } else {
-//        $('header').addClass('fixed');
-//        $('circle').attr("class", "");
-//        $('text').attr('class','');
-//        $('nav').addClass('invisible nav-on-view');
-//        setNavMargin();
-//   }
-//   if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
-//     $('circle').attr("class", "pop-in");
-//     $('text').attr('class','rsvp-font-size');
-//   }
+  //   if ( $window.scrollTop() >= distance ) {
+  //       $('header').removeClass('fixed');
+  //       $('nav').removeClass('invisible nav-on-view');
+  //   } else {
+  //        $('header').addClass('fixed');
+  //        $('circle').attr("class", "");
+  //        $('text').attr('class','');
+  //        $('nav').addClass('invisible nav-on-view');
+  //        setNavMargin();
+  //   }
+  //   if ( $window.scrollTop() >= distance+window.innerHeight*0.8 ) {      
+  //     $('circle').attr("class", "pop-in");
+  //     $('text').attr('class','rsvp-font-size');
+  //   }
 
   $window.scroll(function() {
     if ( $window.scrollTop() >= distance ) {
