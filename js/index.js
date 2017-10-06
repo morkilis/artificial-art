@@ -123,7 +123,7 @@ $(function() {
 
   //pop and rotate RSVP
   var $rsvp = $(".rsvp-button"), degree = 0, timer;
-  rotate();
+  //rotate();
   function rotate() {      
     $rsvp.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
     $rsvp.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
